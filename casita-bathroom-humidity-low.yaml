@@ -1,0 +1,18 @@
+# Automation turning off bathroom extractor fan once humidity falls below 60%
+
+alias: Casita Bathroom Humidity Low
+description: ""
+trigger:
+  - type: humidity
+    platform: device
+    device_id: 70ab167555b01f65c880718fc64e6b42
+    entity_id: sensor.lumi_lumi_weather_28c3eb07_humidity
+    domain: sensor
+    below: 60
+condition: []
+action:
+  - type: turn_off
+    device_id: ee392c368b9b5996b58de40be684a350
+    entity_id: switch.casita_bathroom_exhaust_fan
+    domain: switch
+mode: single
