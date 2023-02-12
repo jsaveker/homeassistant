@@ -1,0 +1,16 @@
+# Automation to turn on guest bathroom extractor fan when someone turns on the bathroom light.
+
+alias: turn on guest bathroom extractor
+description: turn on fan if bathroom light is turned on
+trigger:
+  - platform: state
+    entity_id: light.guest_bathroom_vanity_lights
+    from: "off"
+    to: "on"
+condition: []
+action:
+  - type: turn_on
+    device_id: d7244a32c9e1541d6b49d71521a53890
+    entity_id: switch.guest_bathroom_exhaust_fan
+    domain: switch
+mode: single
