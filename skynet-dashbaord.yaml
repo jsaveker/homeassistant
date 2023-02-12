@@ -1,0 +1,468 @@
+title: skynet
+views:
+  - title: Alarm
+    path: alarm
+    icon: mdi:alarm-light
+    badges: []
+    cards:
+      - type: alarm-panel
+        states:
+          - arm_home
+          - arm_away
+        entity: alarm_control_panel.home_alarm
+      - type: entities
+        entities:
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_d123d107_on_off
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_on_off
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_871dd107_on_off
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_4ca2c207_on_off
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_6f23d107_on_off
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_2121d107_on_off
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_8c29d107_on_off
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_71d4d107_on_off
+        title: Door Sensors
+        state_color: true
+      - type: history-graph
+        entities:
+          - entity: alarm_control_panel.home_alarm
+        hours_to_show: 24
+        refresh_interval: 0
+        title: Alarm Mode
+      - type: history-graph
+        entities:
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_d123d107_on_off
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_on_off
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_871dd107_on_off
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_4ca2c207_on_off
+        hours_to_show: 24
+        refresh_interval: 0
+        title: Door Status (24 Hours)
+      - type: entities
+        entities:
+          - person.jim
+        title: Person
+      - type: entities
+        entities:
+          - entity: binary_sensor.lumi_lumi_sensor_wleak_aq1_ias_zone
+            name: Kitchen Sink
+          - entity: binary_sensor.lumi_lumi_sensor_wleak_aq1_d667c307_ias_zone
+            name: Study Bathrrom
+        title: Water Leak Sensors
+        state_color: true
+  - path: default_view
+    title: Home
+    icon: mdi:home
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - scene.bedtime
+          - scene.morning
+        title: Scene
+      - type: entities
+        entities:
+          - sun.sun
+        title: Sun
+      - type: entities
+        entities:
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_d123d107_on_off
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_on_off
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_871dd107_on_off
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_4ca2c207_on_off
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_6f23d107_on_off
+          - entity: cover.garage_door
+        title: Door Sensors
+        state_color: true
+      - type: entities
+        entities:
+          - entity: sensor.lumi_lumi_weather_humidity
+            name: Humidity
+          - entity: sensor.lumi_lumi_weather_pressure
+            name: Pressure
+          - entity: sensor.lumi_lumi_weather_temperature
+            name: Temperature
+        title: Living Room Temp
+      - type: entities
+        entities:
+          - sensor.lumi_lumi_weather_55f8be07_humidity
+          - sensor.lumi_lumi_weather_55f8be07_pressure
+          - sensor.lumi_lumi_weather_55f8be07_temperature
+        title: Kids Bedroom Sensor
+        state_color: true
+      - hours_to_show: 24
+        graph: line
+        type: sensor
+        entity: sensor.lumi_lumi_weather_temperature_2
+        detail: 1
+      - type: sensor
+        entity: sensor.lumi_lumi_weather_temperature
+        graph: line
+        detail: 1
+      - type: sensor
+        graph: line
+        entity: sensor.lumi_lumi_weather_55f8be07_temperature
+        name: Kids Bedroom Temp
+      - type: sensor
+        entity: sensor.air_temp
+        graph: line
+        name: Outdoor Air Temp
+      - type: sensor
+        entity: sensor.lumi_lumi_airmonitor_acn01_voc_level
+        graph: line
+        icon: mdi:air-purifier
+        name: Air Quality
+      - type: entities
+        entities:
+          - entity: sensor.lumi_lumi_airmonitor_acn01_humidity
+            name: Humidity
+          - entity: sensor.lumi_lumi_airmonitor_acn01_temperature
+            name: Temperature
+          - entity: sensor.lumi_lumi_airmonitor_acn01_voc_level
+            name: Voc_level
+        title: Entrance Air Monitor
+      - type: entities
+        entities:
+          - sensor.lumi_lumi_weather_42ddc807_humidity
+          - sensor.lumi_lumi_weather_42ddc807_pressure
+          - sensor.lumi_lumi_weather_42ddc807_temperature
+        title: Master Bathroom Sensor
+      - hours_to_show: 24
+        graph: line
+        type: sensor
+        entity: sensor.lumi_lumi_weather_28c3eb07_temperature
+        detail: 1
+  - icon: mdi:camera
+    title: Cameras
+    badges: []
+    cards:
+      - type: picture-entity
+        entity: camera.santaluz_doorbell_high
+      - type: picture-entity
+        entity: camera.santaluz_back_door_high
+      - type: picture-entity
+        entity: camera.santaluz_pool_high
+      - type: picture-entity
+        entity: camera.santaluz_back_garden_high
+      - type: picture-entity
+        entity: camera.santaluz_driveway_high
+      - type: picture-entity
+        entity: camera.santaluz_balcony_high
+      - type: picture-entity
+        entity: camera.santaluz_deck_high
+      - type: picture-entity
+        entity: camera.santaluz_living_room_high
+      - type: picture-entity
+        entity: camera.santaluz_nursery_high
+      - type: picture-entity
+        entity: camera.santaluz_playroom_high
+      - type: picture-entity
+        entity: camera.dining_room_high
+  - title: Media
+    path: media
+    icon: mdi:speaker
+    badges: []
+    cards:
+      - type: media-control
+        entity: media_player.playroom
+      - type: media-control
+        entity: media_player.office
+      - type: media-control
+        entity: media_player.zone_11
+      - type: media-control
+        entity: media_player.zone_14_2
+      - type: media-control
+        entity: media_player.zone_12_2
+      - type: media-control
+        entity: media_player.zone_13_2
+      - type: media-control
+        entity: media_player.zone_15_2
+      - type: media-control
+        entity: media_player.zone_16_2
+  - title: Office
+    path: office
+    icon: mdi:office-building
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - fan.office_ceiling_fan
+          - light.office_ceiling_fan_light
+          - light.office_main_lights
+        title: Office
+      - type: media-control
+        entity: media_player.office
+      - type: media-control
+        entity: media_player.zone_16_2
+      - type: entities
+        entities:
+          - sensor.lumi_lumi_weather_7dfabe07_humidity
+          - sensor.lumi_lumi_weather_7dfabe07_pressure
+          - sensor.lumi_lumi_weather_7dfabe07_temperature
+        title: Humidor Sensor
+      - type: sensor
+        entity: sensor.lumi_lumi_weather_7dfabe07_humidity
+        graph: line
+        name: Humidor Humidity (24 Hours)
+        detail: 1
+      - type: sensor
+        graph: line
+        entity: sensor.lumi_lumi_weather_7dfabe07_temperature
+        name: Humidor Temp (24 Hours)
+      - type: entities
+        entities:
+          - binary_sensor.lumi_lumi_sensor_magnet_aq2_4ca2c207_on_off
+        title: Office Door Sensor
+        state_color: true
+      - type: entities
+        entities:
+          - binary_sensor.lumi_lumi_sensor_wleak_aq1_f263c407_ias_zone
+        state_color: true
+      - type: entities
+        entities:
+          - sensor.lumi_lumi_weather_temperature_2
+          - sensor.lumi_lumi_weather_pressure_2
+          - sensor.lumi_lumi_weather_humidity_2
+      - hours_to_show: 24
+        graph: line
+        type: sensor
+        entity: sensor.lumi_lumi_weather_temperature_2
+        detail: 1
+  - icon: mdi:theater
+    title: Media Room
+    path: media-room
+    badges: []
+    cards:
+      - type: media-control
+        entity: media_player.santaluz_media_room
+      - type: entities
+        entities:
+          - entity: light.media_room_main_lights
+          - entity: light.media_room_sconces
+          - entity: switch.kids_desk_switch_on_off
+            name: Screen Lights
+      - type: entities
+        entities:
+          - remote.santaluz_media_room
+      - type: media-control
+        entity: media_player.marantz_av8805
+      - type: media-control
+        entity: media_player.epson_projector
+  - title: Outdoors
+    path: outdoors
+    icon: mdi:flower
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: cover.all_blinds
+          - entity: cover.shade_1
+          - entity: cover.blind_2
+          - entity: cover.blind_3
+          - entity: cover.shade_4
+          - entity: cover.deck_awning
+        title: Sun Shades
+      - type: entities
+        entities:
+          - switch.exterior_deck_ceiling_fan
+          - switch.exterior_driveway_light
+          - light.exterior_deck_lights
+          - switch.exterior_backdoor_light
+        title: Exterior
+        state_color: true
+      - type: entities
+        entities:
+          - switch.balcony_deck_lights
+          - switch.balcony_ceiling_fan
+        title: Balcony
+        state_color: true
+      - type: thermostat
+        entity: climate.pool
+        name: Swimming Pool
+      - type: thermostat
+        entity: climate.spa
+      - type: entities
+        entities:
+          - binary_sensor.freeze_protection
+          - entity: light.pool_light
+            name: Light
+          - light.spa_light
+          - sensor.spa_temp
+          - entity: sensor.pool_temp
+            name: Temp
+          - sensor.air_temp
+          - sensor.cover_pool
+          - sensor.spa_salinity
+          - entity: sensor.pool_salinity
+            name: Salinity
+          - sensor.orp
+          - sensor.ph
+          - switch.spa_pump
+          - entity: switch.pool_pump
+            name: Pump
+          - switch.spa_heater
+          - entity: switch.pool_heater
+            name: Heater
+          - switch.solar_heater
+          - switch.cleaner
+          - switch.waterfall
+          - switch.spa_booster
+          - switch.aux6
+          - switch.aux7
+          - switch.extra_aux
+        title: Pool
+        state_color: true
+      - type: media-control
+        entity: media_player.zone_11
+      - type: entities
+        entities:
+          - sun.sun
+        title: Sun
+      - type: sensor
+        entity: sensor.air_temp
+        graph: line
+        name: Outdoor Air Temp
+      - type: sensor
+        entity: sensor.pool_temp
+        graph: line
+        name: Pool Water Temp
+      - type: weather-forecast
+        entity: weather.skynet
+        secondary_info_attribute: humidity
+  - title: Upstairs
+    path: upstairs
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - light.media_room_main_lights
+          - light.media_room_sconces
+        title: Media Room
+        state_color: true
+      - type: entities
+        entities:
+          - switch.playroom_spot_lights
+          - fan.playroom_ceiling_fan
+          - light.playroom_main_lights
+          - light.playroom_ceiling_fan_light
+        title: Playroom
+      - type: media-control
+        entity: media_player.zone_14_2
+      - type: media-control
+        entity: media_player.playroom
+      - type: entities
+        entities:
+          - light.stairs_main_lights
+        title: Stairs
+        state_color: true
+      - type: entities
+        entities:
+          - switch.kids_bedroom_closet_light
+          - light.kids_bedroom_ceiling_fan_light
+          - fan.kids_bedroom_ceiling_fan
+          - switch.kids_bathroom_vanity_lights
+          - fan.kids_bathroom_ceiling_fan
+        title: Kids Bedroom and Bath
+        state_color: true
+      - type: entities
+        entities:
+          - switch.nanny_bathroom_exhaust_fan
+          - switch.nanny_bathroom_vanity_lights
+          - fan.nanny_bedroom_ceiling_fan
+          - switch.nanny_bedroom_ceiling_fan_light
+          - switch.nanny_bedroom_closet_light
+        title: Nanny Bedroom and Bath
+        state_color: true
+  - title: Downstairs
+    path: downstairs
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - light.breakfast_room_chandelier
+        title: Breakfast Room
+        state_color: true
+      - type: entities
+        entities:
+          - fan.casita_bedroom_ceiling_fan
+          - light.casita_bedroom_ceiling_fan_light
+        title: Casita Bedroom
+        state_color: true
+      - type: entities
+        entities:
+          - light.dining_room_chandelier
+        title: Dining Room
+      - type: entities
+        entities:
+          - light.downstairs_hallway_main_lights
+        title: Downstairs Hallway
+      - type: entities
+        entities:
+          - entity: light.front_foyer_main_lights
+          - entity: switch.entrance_switch_on_off
+        title: Front Foyer
+        state_color: true
+      - type: entities
+        entities:
+          - fan.living_room_ceiling_fan
+          - light.living_room_main_lights
+        title: Living Room
+        state_color: true
+      - type: media-control
+        entity: media_player.zone_12_2
+      - type: entities
+        entities:
+          - entity: switch.master_bathroom_exhaust_fan
+          - entity: light.master_bathroom_shower_lights
+          - entity: light.master_bathroom_chandelier
+          - entity: light.master_bathroom_tub_lights
+          - entity: light.master_bathroom_vanity_lights
+          - entity: light.master_bathroom_main_lights
+          - entity: switch.master_bathroom_toilet_exhaust_fan
+        title: Master Bathroom
+        state_color: true
+      - type: entities
+        entities:
+          - fan.office_ceiling_fan
+          - light.office_ceiling_fan_light
+          - light.office_main_lights
+        title: Office
+      - type: entities
+        entities:
+          - light.mudroom_main_lights
+        title: Mudroom
+        state_color: true
+      - type: entities
+        entities:
+          - light.nook_main_lights
+        title: Nook
+      - type: entities
+        entities:
+          - entity: light.master_bedroom_ceiling_fan_light
+          - entity: switch.master_bedroom_closet_light
+          - entity: fan.master_bedroom_ceiling_fan
+          - entity: light.master_bedroom_main_lights
+          - entity: light.master_bedroom_cove_lights
+          - entity: switch.master_bedroom_phone_charger
+        title: Master Bedroom
+        state_color: true
+      - type: entities
+        entities:
+          - switch.guest_bathroom_exhaust_fan
+          - light.guest_bathroom_vanity_lights
+        title: Guest Bathroom
+        state_color: true
+      - type: entities
+        entities:
+          - entity: light.kitchen_island_pendants
+          - entity: light.kitchen_under_cabinet
+          - entity: light.kitchen_main_lights
+          - entity: switch.kitchen_island_switch_on_off
+        title: Kitchen
+        state_color: true
+      - type: entities
+        entities:
+          - switch.laundry_room_main_lights
+        title: Laundry Room
+        state_color: true
+      - type: media-control
+        entity: media_player.zone_13_2
