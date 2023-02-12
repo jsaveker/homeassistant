@@ -1,0 +1,21 @@
+# Automation to trigger alarm if panic button is pressed.
+
+alias: Front Door Panic Button
+description: Trigger alarm if panic button is pressed
+trigger:
+  - device_id: ec1b61f84a24b3ea7d0a8af8445ebc4a
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: remote_button_short_press
+condition: []
+action:
+  - service: alarm_control_panel.alarm_trigger
+    target:
+      entity_id: alarm_control_panel.home_alarm
+    data: {}
+  - service: notify.mobile_app_iphone_2
+    data:
+      title: PANIC FRONT DOOR
+      message: Front door panic button pressed
+mode: single
