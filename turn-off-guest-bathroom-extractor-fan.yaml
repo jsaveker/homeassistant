@@ -1,0 +1,21 @@
+# Automation to turn off guest bathroom extractor fan five minutes after the bathroom light is turned off.
+
+alias: Turn off guest bathroom extractor
+description: turn off after 5 minutes
+trigger:
+  - platform: state
+    entity_id: light.guest_bathroom_vanity_lights
+    from: "on"
+    to: "off"
+condition: []
+action:
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - type: turn_off
+    device_id: d7244a32c9e1541d6b49d71521a53890
+    entity_id: switch.guest_bathroom_exhaust_fan
+    domain: switch
+mode: single
