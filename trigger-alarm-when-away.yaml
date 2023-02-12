@@ -1,0 +1,23 @@
+# Trigger alarm if door sensor state changes when alarm is armed.
+
+alias: Trigger alarm while armed away
+description: ""
+trigger:
+  - platform: state
+    entity_id: binary_sensor.lumi_lumi_sensor_magnet_aq2_d123d107_on_off
+    from: "off"
+    to: "on"
+  - platform: state
+    entity_id: binary_sensor.lumi_lumi_sensor_magnet_aq2_on_off
+    from: "off"
+    to: "on"
+condition:
+  - condition: state
+    entity_id: alarm_control_panel.home_alarm
+    state: armed_away
+action:
+  - service: alarm_control_panel.alarm_trigger
+    target:
+      entity_id: alarm_control_panel.home_alarm
+    data: {}
+mode: single
