@@ -1,0 +1,17 @@
+# Automation to send push notification when humidor is running low on distiled water.
+
+alias: Alert Water Low on Humidor
+description: ""
+trigger:
+  - type: not_moist
+    platform: device
+    device_id: 2a90e8b0f5668733b4f78aabf9b69de3
+    entity_id: binary_sensor.lumi_lumi_sensor_wleak_aq1_f263c407_ias_zone
+    domain: binary_sensor
+condition: []
+action:
+  - service: notify.mobile_app_jimbo
+    data:
+      message: Humidor water low
+      title: Humidor needs water
+mode: single
